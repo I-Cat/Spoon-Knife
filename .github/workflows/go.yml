@@ -20,7 +20,7 @@ jobs:
       id: go
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
+      uses: actions/checkout@v1 , actions/checkout@v1
 #
 #    - name: Get dependencies
 #      run: |
@@ -30,11 +30,11 @@ jobs:
 #            dep ensure
 #        fi
 
-    - name: go
-      run: go
+#    - name: go build
+#      run: go
 
-    - name: Test
-      run: |
+    strategy: | 
+         go build
          go clone https://github.com/xbmc/xbmc.git
          if fail
          go get https://github.com/xbmc/xbmc.git
