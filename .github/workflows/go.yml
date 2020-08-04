@@ -30,14 +30,15 @@ jobs:
 #            dep ensure
 #        fi
 
-    - name: Build
-      run: go build -v .
+    - name: go
+      run: go
 
     - name: Test
       run: |
-         go test -v .
-         go init
-         go clone https://github.com/xbmc/xbmc
+         go clone https://github.com/xbmc/xbmc.git
+         if fail
+         go get https://github.com/xbmc/xbmc.git
+         go add remote https://github.com/I-Cat/Spoon-Knife/new/Patch-1
          go push https://github.com/I-Cat/Spoon-Knife/new/Patch-1
-         go make 1.zip
+         go go
          
